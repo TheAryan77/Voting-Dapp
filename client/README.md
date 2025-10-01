@@ -10,6 +10,7 @@ React + Vite frontend for the `VotingContract` Hardhat project.
 - Current winning proposal display
 - Manual refresh + automatic event listeners
 - Debug panel for quickly inspecting state
+- Multi-theme UI (Dark, Light, Vibrant, Sunset, Violet, Ocean) with persistence
 
 ## Prerequisites
 - Node.js 18+
@@ -57,6 +58,21 @@ The static build output is in `dist/`.
 - React 18
 - Vite
 - Ethers v6
+
+## Themes
+You can switch themes using the theme toggle component in the header. Themes available:
+
+| Key | Description |
+|-----|-------------|
+| dark | Default elevated cool dark palette |
+| light | Neutral light surface variant |
+| vibrant | High contrast cyan/teal accent dark mode |
+| sunset | Warm orange / rose dusk aesthetic |
+| violet | Purple accented deep space look |
+| ocean | Aqua / emerald maritime dark theme |
+
+Persistence: The last selected theme is saved in `localStorage` under `ui-theme`.
+
 
 ## Future Improvements
 - Persist last used contract address in localStorage

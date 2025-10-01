@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
+const THEMES = [
+  { key: 'dark', label: 'Dark' },
+  { key: 'light', label: 'Light' },
+  { key: 'vibrant', label: 'Vibrant' },
+  { key: 'sunset', label: 'Sunset' },
+  { key: 'violet', label: 'Violet' },
+  { key: 'ocean', label: 'Ocean' },
+];
+
 export function ThemeToggle() {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -10,24 +19,28 @@ export function ThemeToggle() {
 
   useEffect(() => {
     const body = document.body;
-    if (theme === 'light') body.classList.add('theme-light'); else body.classList.remove('theme-light');
+    // Remove all theme-* classes first
+    body.classList.remove(
+      'theme-light','theme-vibrant','theme-sunset','theme-violet','theme-ocean'
+    );
+    if (theme !== 'dark') {
+      body.classList.add(`theme-${theme}`);
+    }
     localStorage.setItem('ui-theme', theme);
   }, [theme]);
 
   return (
-    <div className="theme-toggle" role="group" aria-label="Theme toggle">
-      <button
-        type="button"
-        className={theme === 'dark' ? 'active' : ''}
-        onClick={() => setTheme('dark')}
-        aria-pressed={theme === 'dark'}
-      >Dark</button>
-      <button
-        type="button"
-        className={theme === 'light' ? 'active' : ''}
-        onClick={() => setTheme('light')}
-        aria-pressed={theme === 'light'}
-      >Light</button>
+    <div className="theme-toggle" role="group" aria-label="Theme toggle" style={{flexWrap:'wrap'}}>
+      {THEMES.map(t => (
+        <button
+          key={t.key}
+            type="button"
+            className={theme === t.key ? 'active' : ''}
+            onClick={() => setTheme(t.key)}
+            aria-pressed={theme === t.key}
+            title={`Switch to ${t.label} theme`}
+        >{t.label}</button>
+      ))}
     </div>
   );
 }
