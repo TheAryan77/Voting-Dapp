@@ -1,0 +1,33 @@
+{
+  "name": "voting-dapp-hardhat",
+  "version": "1.0.0",
+  "description": "A decentralized voting application built with Hardhat and Solidity",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run scripts/deploy.js",
+    "node": "npx hardhat node"
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "solidity",
+    "hardhat",
+    "voting",
+    "dapp"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.26.3"
+  },
+  "dependencies": {
+    "ethers": "^6.8.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "type": "commonjs"
+}

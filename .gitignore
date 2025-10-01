@@ -1,0 +1,43 @@
+# Node
+node_modules/
+**/node_modules/
+
+# Dependency locks (optional keep if you want deterministic builds)
+# yarn.lock
+# pnpm-lock.yaml
+
+# Build outputs
+client/dist/
+client/.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Env
+.env
+client/.env
+client/.env.local
+client/.env.*.local
+
+# Mac
+.DS_Store
+
+# Hardhat
+hardhat/cache/
+hardhat/artifacts/
+!hardhat/artifacts/contracts/**/VotingContract.json
+
+# Coverage
+coverage/
+coverage.json
+
+# Editor
+.vscode/
+.idea/
+
+# Misc
+*.tsbuildinfo
+*.log
